@@ -14,7 +14,8 @@ typedef enum {
 	GNV,
 	VCS,
 	KV_CLOTH,
-	BSP    //Source 1, but w/e, let's id it at least
+	BSP,    	//Source 1, but w/e, let's id it at least
+	VBKV		//Very rarely used
 } filetype_t;
 
 typedef struct {
@@ -25,8 +26,10 @@ typedef struct {
 	void* parsed_object;
 } filedata;
 
+uint64_t readintobuf(char* filename, char** out);
 filedata* loadfile(char* filename);
 void parse(filedata* fd);
+void fd_free(filedata* fd);
 
 #include "stupidvalve.h"
 #include "vcs.h"
